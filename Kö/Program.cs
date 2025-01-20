@@ -28,11 +28,11 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
     items = new T[len];
   }
 
-/// <summary>
-/// Compares two instances of the queue
-/// </summary>
-/// <param name="x"></param>
-/// <returns></returns>
+  /// <summary>
+  /// Compares two instances of the queue
+  /// </summary>
+  /// <param name="x"></param>
+  /// <returns></returns>
   public int CompareTo(Queue<T> x){
        for (int i = 0; i <= last && i <= x.last; i++)
         {
@@ -45,103 +45,103 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
         return last.CompareTo(x.last);
   }
 
-/// <summary>
-/// Adds a element to the end of the queue
-/// </summary>
-/// <param name="y"></param>
+  /// <summary>
+  /// Adds an element to the end of the queue
+  /// </summary>
+  /// <param name="y"></param>
   public void add(T y){
+    if (last + 1 < items.Length)
     {
-        if (last + 1 < items.Length)
-        {
-            last++;
-            items[last] = y;
-        }
-        else
-        {
-            Console.WriteLine("Queue is full.");
-        }
+        last++;
+        items[last] = y;
+    }
+    else
+    {
+        Console.WriteLine("Queue is full.");
     }
   }
 
-/// <summary>
-/// Removes a element on the given index
-/// </summary>
-/// <param name="z"></param>
+  /// <summary>
+  /// Removes an element at the given index
+  /// </summary>
+  /// <param name="z"></param>
   public void remove(int z){
     if (!isEmpty() && z <= last)
+    {
+        for (int i = z; i < last; i++)
         {
-            for (int i = z; i < last; i++)
-            {
-                items[i] = items[i + 1];
-            }
-            last--;
+            items[i] = items[i + 1];
         }
-        else
-        {
-            Console.WriteLine("Queue is empty or invalid index.");
-        }
+        last--;
+    }
+    else
+    {
+        Console.WriteLine("Queue is empty or invalid index.");
+    }
   }
 
-/// <summary>
-/// Swaps the places of two element on two given indexes
-/// </summary>
-/// <param name="n"></param>
-/// <param name="m"></param>
+  /// <summary>
+  /// Swaps the places of two elements at given indexes
+  /// </summary>
+  /// <param name="n"></param>
+  /// <param name="m"></param>
   public void swap(int n, int m){
-    Console.WriteLine($"{n} is your first queue, {m} is your second queue");
-     if (n >= 0 && n <= last && m >= 0 && m <= last)
-        {
-            T temp = items[n];
-            items[n] = items[m];
-            items[m] = temp;
-        }
-    Console.WriteLine($"{n} is now your first queue, {m} is your second queue");
+    Console.WriteLine($"{n} is your first index, {m} is your second index");
+    if (n >= 0 && n <= last && m >= 0 && m <= last)
+    {
+        T temp = items[n];
+        items[n] = items[m];
+        items[m] = temp;
+    }
+    Console.WriteLine($"{n} is now your first index, {m} is your second index");
   }
 
-/// <summary>
-/// Returns if the list is empty
-/// </summary>
-/// <returns></returns>
+  /// <summary>
+  /// Returns if the list is empty
+  /// </summary>
+  /// <returns></returns>
   public bool isEmpty(){
     return last == -1;
   }
 
-
-/// <summary>
-/// Returns the smallest element in the list
-/// </summary>
-/// <returns></returns>
+  /// <summary>
+  /// Returns the smallest element in the list
+  /// </summary>
+  /// <returns></returns>
   public T min(){
+    if (isEmpty())
+    {
+        throw new InvalidOperationException("Queue is empty.");
+    }
     T minElement = items[0];
-    for (int i = 1; i < last; i++){
-      if (items[i].CompareTo(minElement) < 0){
-        minElement = items[i];
-      }
-      
+    for (int i = 1; i <= last; i++)
+    {
+        if (items[i].CompareTo(minElement) < 0)
+        {
+            minElement = items[i];
+        }
     }
     return minElement;
   }
 
-
-/// <summary>
-/// Prints a list of all the items
-/// </summary>
+  /// <summary>
+  /// Prints a list of all the items
+  /// </summary>
   public void print(){
     if (isEmpty())
+    {
+        Console.WriteLine("Queue is empty.");
+    }
+    else
+    {
+        for (int i = 0; i <= last; i++)
         {
-            Console.WriteLine("Queue is empty.");
+            Console.WriteLine($"{items[i]} ");
         }
-        else
-        {
-            for (int i = 0; i <= last; i++)
-            {
-                Console.WriteLine($"{items[i]} ");
-            }
-            Console.WriteLine();
-        }
+        Console.WriteLine();
     }
   }
-
+}
 
 public class Program{
   static void Main(){
@@ -161,54 +161,61 @@ public class Program{
       Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Exit");
       switch (Console.ReadKey(true).KeyChar){
         case '1':
-        Console.WriteLine("Enter the item you want to add");
-        string itemAdd = Console.ReadLine();
-        if (itemAdd == null || itemAdd.All(Char.IsDigit)){
-          throw new InputException();
-      } else {
-      queueStr.add(itemAdd);
-      Console.WriteLine($"{itemAdd} Was added to your queue");
+          Console.WriteLine("Enter the item you want to add");
+          string itemAdd = Console.ReadLine();
+          if (string.IsNullOrEmpty(itemAdd))
+          {
+              Console.WriteLine("Invalid input. Please enter a valid string.");
+          }
+          else
+          {
+              queueStr.add(itemAdd);
+              Console.WriteLine($"{itemAdd} was added to your queue.");
+          }
+          break;
+
+        case '2':
+          Console.WriteLine("Enter the index to remove from the queue");
+          if (int.TryParse(Console.ReadLine(), out int indexRemove) && indexRemove <= queueInt.last && indexRemove >= 0)
+          {
+              queueInt.remove(indexRemove);
+              Console.WriteLine($"Index {indexRemove} was removed.");
+          }
+          else
+          {
+              Console.WriteLine("Invalid input or index out of bounds.");
+          }
+          break;
+
+        case '3':
+          Console.WriteLine(queueOne.CompareTo(queueTwo));
+          break;
+
+        case '4':
+          Console.WriteLine("Enter two indices to swap:");
+          if (int.TryParse(Console.ReadLine(), out int swapIndexOne) && int.TryParse(Console.ReadLine(), out int swapIndexTwo))
+          {
+              queueInt.swap(swapIndexOne, swapIndexTwo);
+          }
+          else
+          {
+              Console.WriteLine("Invalid indices.");
+          }
+          break;
+
+        case '5':
+          queueStr.print();
+          break;
+
+        case '6':
+          Console.WriteLine("Quitting Queue");
+          queueRunning = false;
+          break;
+
+        default:
+          Console.WriteLine("Invalid option");
+          break;
       }
-      break;
-
-      case '2':
-        Console.WriteLine("Enter what index you would want to remove from the queue");
-        string indexRemove = Console.ReadLine();
-        if (int.Parse(indexRemove) < queueInt.len || indexRemove.All(char.IsAsciiLetter)){
-          throw new InputException();
-        } else {
-        queueInt.remove(int.Parse(indexRemove));
-        Console.WriteLine($"Index {indexRemove} was removed");
-        }
-        break;
-
-      case '3':
-        Console.WriteLine(queueOne.CompareTo(queueTwo));
-        break;
-
-      case '4':
-        char swapIndexOne = Console.ReadKey().KeyChar;
-        char swapIndexTwo = Console.ReadKey().KeyChar;
-        if (swapIndexOne == null && swapIndexTwo == null || char.IsAsciiLetter(swapIndexOne) && char.IsAsciiLetter(swapIndexTwo)){
-          throw new InputException();
-        } else{
-        queueInt.swap(swapIndexOne, swapIndexTwo);
-        }
-        break;
-
-      case '5':
-        queueStr.print();
-        break;
-
-      case '6':
-        Console.WriteLine("Quiting Queue");
-        queueRunning = false;
-        break;
-
-      default:
-        Console.WriteLine("Invalid option");
-        break;
-    }
-  } 
-}
+    } 
+  }
 }
