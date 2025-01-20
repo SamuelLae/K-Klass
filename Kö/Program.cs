@@ -6,6 +6,14 @@
     }
 }
 
+public class ContinueStopper{
+  public void continueMessage(){
+    Console.WriteLine("Press any button to continue");
+    Console.ReadKey();
+    Console.Clear();
+  }
+}
+
 public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
   /// <summary>
   /// Check the last items index
@@ -145,6 +153,7 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
 
 public class Program{
   static void Main(){
+    ContinueStopper stopper = new ContinueStopper();
     Queue<int> queueInt = new Queue<int>(3);
     Queue<string> queueStr = new Queue<string>(3);
 
@@ -152,11 +161,9 @@ public class Program{
     Queue<int> queueTwo = new Queue<int>(3);
 
     bool queueRunning = true;
-
     Console.WriteLine("Welcome to the queue!\nPress any button to continue:");
     Console.ReadKey(true);
     while (queueRunning){
-      //Console.Clear();
       Console.WriteLine("What do you want to do?: ");
       Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Exit");
       switch (Console.ReadKey(true).KeyChar){
@@ -173,6 +180,7 @@ public class Program{
               queueStr.add(itemAdd);
               Console.WriteLine($"{itemAdd} was added to your queue.");
           }
+          stopper.continueMessage();
           break;
 
         case '2':
@@ -186,10 +194,12 @@ public class Program{
           {
               Console.WriteLine("Invalid input or index out of bounds.");
           }
+          stopper.continueMessage();
           break;
 
         case '3':
           Console.WriteLine(queueOne.CompareTo(queueTwo));
+          stopper.continueMessage();
           break;
 
         case '4':
@@ -202,10 +212,12 @@ public class Program{
           {
               Console.WriteLine("Invalid indices.");
           }
+          stopper.continueMessage();
           break;
 
         case '5':
           queueStr.print();
+          stopper.continueMessage();
           break;
 
         case '6':
