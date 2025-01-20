@@ -156,7 +156,7 @@ public class Program{
     Console.WriteLine("Welcome to the queue!\nPress any button to continue:");
     Console.ReadKey(true);
     while (queueRunning){
-      Console.Clear();
+      //Console.Clear();
       Console.WriteLine("What do you want to do?: ");
       Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Exit");
       switch (Console.ReadKey(true).KeyChar){
