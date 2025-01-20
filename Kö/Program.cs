@@ -82,12 +82,14 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
 /// <param name="n"></param>
 /// <param name="m"></param>
   public void swap(int n, int m){
+    Console.WriteLine($"{n} is your first queue, {m} is your second queue");
      if (n >= 0 && n <= last && m >= 0 && m <= last)
         {
             T temp = items[n];
             items[n] = items[m];
             items[m] = temp;
         }
+    Console.WriteLine($"{n} is now your first queue, {m} is your second queue");
   }
 
 /// <summary>
@@ -127,7 +129,7 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
         {
             for (int i = 0; i <= last; i++)
             {
-                Console.Write($"{items[i]} ");
+                Console.WriteLine($"{items[i]} ");
             }
             Console.WriteLine();
         }
@@ -153,20 +155,24 @@ public class Program{
       Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Exit");
       switch (Console.ReadKey(true).KeyChar){
         case '1':
+        Console.WriteLine("Enter the item you want to add");
         string itemAdd = Console.ReadLine();
         if (itemAdd == null || itemAdd.All(Char.IsDigit)){
           throw new InputException();
       } else {
       queueStr.add(itemAdd);
+      Console.WriteLine($"{itemAdd} Was added to your queue");
       }
       break;
 
       case '2':
+        Console.WriteLine("Enter what index you would want to remove from the queue");
         string indexRemove = Console.ReadLine();
         if (int.Parse(indexRemove) < queueInt.len || indexRemove.All(char.IsAsciiLetter)){
           throw new InputException();
         } else {
         queueInt.remove(int.Parse(indexRemove));
+        Console.WriteLine($"Index {indexRemove} was removed");
         }
         break;
 
