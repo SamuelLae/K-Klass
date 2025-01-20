@@ -22,6 +22,12 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
   /// </summary>
   public T[] items;
 
+  public Queue(int Len){
+    last = -1;
+    len = Len;
+    items = new T[len];
+  }
+
 /// <summary>
 /// Compares two instances of the queue
 /// </summary>
@@ -139,15 +145,15 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
 
 public class Program{
   static void Main(){
-    Queue<int> queueInt = new Queue<int>();
-    Queue<string> queueStr = new Queue<string>();
+    Queue<int> queueInt = new Queue<int>(3);
+    Queue<string> queueStr = new Queue<string>(3);
 
-    Queue<int> queueOne = new Queue<int>();
-    Queue<int> queueTwo = new Queue<int>();
+    Queue<int> queueOne = new Queue<int>(2);
+    Queue<int> queueTwo = new Queue<int>(3);
 
     bool queueRunning = true;
 
-    Console.WriteLine("Welcome to the queue! \nPress any button to continue:");
+    Console.WriteLine("Welcome to the queue!\nPress any button to continue:");
     Console.ReadKey(true);
     while (queueRunning){
       Console.Clear();
