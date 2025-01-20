@@ -145,27 +145,29 @@ public class Program{
 
     bool queueRunning = true;
 
-    Console.WriteLine("Welcome to the queue! \n Press any button to continue:");
+    Console.WriteLine("Welcome to the queue! \nPress any button to continue:");
     Console.ReadKey(true);
     while (queueRunning){
       Console.Clear();
       Console.WriteLine("What do you want to do?: ");
-      Console.WriteLine("1) Add\n 2) Remove\n 3) Compare\n 4) Swap\n 5) Exit");
+      Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Exit");
       switch (Console.ReadKey(true).KeyChar){
         case '1':
         string itemAdd = Console.ReadLine();
         if (itemAdd == null || itemAdd.All(Char.IsDigit)){
           throw new InputException();
-      }
+      } else {
       queueStr.add(itemAdd);
+      }
       break;
 
       case '2':
         string indexRemove = Console.ReadLine();
         if (int.Parse(indexRemove) < queueInt.len || indexRemove.All(char.IsAsciiLetter)){
           throw new InputException();
-        }
+        } else {
         queueInt.remove(int.Parse(indexRemove));
+        }
         break;
 
       case '3':
@@ -177,11 +179,16 @@ public class Program{
         char swapIndexTwo = Console.ReadKey().KeyChar;
         if (swapIndexOne == null && swapIndexTwo == null || char.IsAsciiLetter(swapIndexOne) && char.IsAsciiLetter(swapIndexTwo)){
           throw new InputException();
-        }
+        } else{
         queueInt.swap(swapIndexOne, swapIndexTwo);
+        }
         break;
 
       case '5':
+        queueStr.print();
+        break;
+
+      case '6':
         Console.WriteLine("Quiting Queue");
         queueRunning = false;
         break;
