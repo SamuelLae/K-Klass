@@ -163,6 +163,7 @@ public class Program{
         case '1':
           Console.WriteLine("Enter the item you want to add");
           string itemAdd = Console.ReadLine();
+          Console.Write("test");
           if (string.IsNullOrEmpty(itemAdd))
           {
               Console.WriteLine("Invalid input. Please enter a valid string.");
