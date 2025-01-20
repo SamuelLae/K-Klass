@@ -1,0 +1,15 @@
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\bin\Debug\net8.0\Kö.exe
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\bin\Debug\net8.0\Kö.deps.json
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\bin\Debug\net8.0\Kö.runtimeconfig.json
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\bin\Debug\net8.0\Kö.dll
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\bin\Debug\net8.0\Kö.pdb
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.AssemblyInfoInputs.cache
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.AssemblyInfo.cs
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.csproj.CoreCompileInputs.cache
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.sourcelink.json
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.dll
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\refint\Kö.dll
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.pdb
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\Kö.genruntimeconfig.cache
+C:\Users\sl8342\OneDrive\Programering\c#\KöKlass\Kö\obj\Debug\net8.0\ref\Kö.dll

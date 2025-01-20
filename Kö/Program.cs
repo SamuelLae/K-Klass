@@ -143,14 +143,14 @@ public class Program{
     Queue<int> queueOne = new Queue<int>();
     Queue<int> queueTwo = new Queue<int>();
 
-    bool ProgramRunning = true;
+    bool queueRunning = true;
 
     Console.WriteLine("Welcome to the queue! \n Press any button to continue:");
     Console.ReadKey(true);
-    while (ProgramRunning){
+    while (queueRunning){
       Console.Clear();
       Console.WriteLine("What do you want to do?: ");
-      Console.WriteLine("1) Add\n 2) Remove\n 3) Compare\n 4) Swap");
+      Console.WriteLine("1) Add\n 2) Remove\n 3) Compare\n 4) Swap\n 5) Exit");
       switch (Console.ReadKey(true).KeyChar){
         case '1':
         string itemAdd = Console.ReadLine();
@@ -179,6 +179,15 @@ public class Program{
           throw new InputException();
         }
         queueInt.swap(swapIndexOne, swapIndexTwo);
+        break;
+
+      case '5':
+        Console.WriteLine("Quiting Queue");
+        queueRunning = false;
+        break;
+
+      default:
+        Console.WriteLine("Invalid option");
         break;
     }
   } 
