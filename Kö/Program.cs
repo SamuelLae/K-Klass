@@ -169,7 +169,6 @@ public class Program{
         case '1':
           Console.WriteLine("Enter the item you want to add");
           string itemAdd = Console.ReadLine();
-          Console.Write("test");
           if (string.IsNullOrEmpty(itemAdd))
           {
               Console.WriteLine("Invalid input. Please enter a valid string.");
@@ -220,7 +219,7 @@ public class Program{
           break;
 
         case '6':
-        Console.WriteLine($"The smallest item in the queue is {queueStr.min}");
+        Console.WriteLine($"The smallest item in the queue is {queueStr.min()}");
         break;
 
         case '7':
