@@ -164,7 +164,7 @@ public class Program{
     Console.ReadKey(true);
     while (queueRunning){
       Console.WriteLine("What do you want to do?: ");
-      Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Exit");
+      Console.WriteLine("1) Add\n2) Remove\n3) Compare\n4) Swap\n5) Print Queue\n6) Smalest item\n7) Exit");
       switch (Console.ReadKey(true).KeyChar){
         case '1':
           Console.WriteLine("Enter the item you want to add");
@@ -220,6 +220,10 @@ public class Program{
           break;
 
         case '6':
+        Console.WriteLine($"The smallest item in the queue is {queueStr.min}");
+        break;
+
+        case '7':
           Console.WriteLine("Quitting Queue");
           queueRunning = false;
           break;
