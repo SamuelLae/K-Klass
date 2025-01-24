@@ -94,6 +94,7 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
   /// <param name="n"></param>
   /// <param name="m"></param>
   public void swap(int n, int m){
+    Console.WriteLine($"{n}, {m}");
     Console.WriteLine($"{items[n]} is your first item, {items[m]} is your second item");
     if (n >= 0 && n <= last && m >= 0 && m <= last)
     {
