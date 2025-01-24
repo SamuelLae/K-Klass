@@ -94,7 +94,6 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
   /// <param name="n"></param>
   /// <param name="m"></param>
   public void swap(int n, int m){
-    Console.WriteLine($"{n}, {m}");
     Console.WriteLine($"{items[n]} is your first item, {items[m]} is your second item");
     if (n >= 0 && n <= last && m >= 0 && m <= last)
     {
@@ -155,7 +154,6 @@ public class Queue<T> : IComparable<Queue<T>> where T : IComparable<T>{
 public class Program{
   static void Main(){
     ContinueStopper stopper = new ContinueStopper();
-    Queue<int> queueInt = new Queue<int>(3);
     Queue<string> queueStr = new Queue<string>(3);
 
     Queue<int> queueOne = new Queue<int>(2);
@@ -186,9 +184,9 @@ public class Program{
 
         case '2':
           Console.WriteLine("Enter the index to remove from the queue");
-          if (int.TryParse(Console.ReadLine(), out int indexRemove) && indexRemove <= queueInt.last && indexRemove >= 0)
+          if (int.TryParse(Console.ReadLine(), out int indexRemove) && indexRemove <= queueStr.last && indexRemove >= 0)
           {
-              queueInt.remove(indexRemove);
+              queueStr.remove(indexRemove);
               Console.WriteLine($"Index {indexRemove} was removed.");
           }
           else
@@ -207,7 +205,7 @@ public class Program{
           Console.WriteLine("Enter two indices to swap:");
           if (int.TryParse(Console.ReadLine(), out int swapIndexOne) && int.TryParse(Console.ReadLine(), out int swapIndexTwo))
           {
-              queueInt.swap(swapIndexOne, swapIndexTwo);
+              queueStr.swap(swapIndexOne, swapIndexTwo);
           }
           else
           {
